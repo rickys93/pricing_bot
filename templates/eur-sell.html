@@ -1,0 +1,35 @@
+{% extends "adverts-base.html" %} 
+{% block title %}EUR SELL{% endblock %}
+{% block advert_type %}LocalBitcoins Sell (EUR){% endblock %}
+{% block page %}eur-sell-marketplace{% endblock %}
+
+
+{% block market_price %}€ {{ price_data['eur_btc_price'] }}{% endblock %}
+{% block sell_price %}€ {{ price_data['eur_sell_price'] }}{% endblock %}
+{% block price_floor %}€ {{ price_data['eur_sell_price_floor'] }}{% endblock %}
+{% block margin %}{{ eur_config['SELL']['price_floor_percent'] }}%{% endblock %}
+
+
+
+{% block table_content %} 
+<tbody id="eur-sell">
+    {% for ad in eur_sell %}
+<tr>
+    {% if ad['targetting'] == 1 %}
+    <th scope="row" style="color:rgb(70, 70, 70)">{{ad['ad_id']}}</th>
+    <td style="color:rgb(70, 70, 70)">{{ad['username']}}</td>
+    <td style="color:rgb(70, 70, 70)">{{ad['temp_price']}}</td>
+    <td style="color:rgb(70, 70, 70)">{{ad['min_amount']}}</td>
+    <td style="color:rgb(70, 70, 70)">{{ad['max_amount_available']}}</td>
+    {% else %}
+    <th scope="row" style="color:rgb(140, 140, 140)">{{ad['ad_id']}}</th>
+    <td style="color:rgb(140, 140, 140)">{{ad['username']}}</td>
+    <td style="color:rgb(140, 140, 140)">{{ad['temp_price']}}</td>
+    <td style="color:rgb(140, 140, 140)">{{ad['min_amount']}}</td>
+    <td style="color:rgb(140, 140, 140)">{{ad['max_amount_available']}}</td>
+    {% endif %}
+</tr>
+    {% endfor %}
+</tbody>
+{% endblock %}
+

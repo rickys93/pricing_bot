@@ -1,0 +1,27 @@
+<form action="#" method="post">
+    <style>
+        /* p {
+            border-style: solid;
+        } */
+        p {
+            margin:0;
+        }
+        .form-group {
+            display: inline-block;
+        }
+    </style>
+    <p>Min Trades</p>
+    <p><input type="number" name="min_trades" id="min-trades" value="{% block min_trades %}{% endblock %}"></p>
+    <p>Top Trade Limit</p>
+    <p><input type="number" name="top_trade_limit" id="top-trade-limit" value="{% block top_trade_limit %}{% endblock %}"></p>
+    <p>Bottom Trade Limit</p>
+    <p><input type="number" name="bottom_trade_limit" id="bottom-trade-limit" value="{% block bottom_trade_limit %}{% endblock %}"></p>
+    <p>Min Top/Bottom Spread</p>
+    <p><input type="number" name="top_bottom_spread" id="top-bottom-spread" value="{% block top_bottom_spread %}{% endblock %}"></p>
+    <p>Price Floor Percent</p>
+    <p><input type="number" name="price_floor_percent" id="price-floor" value="{% block price_floor_percent %}{% endblock %}"></p>
+    <p>Bot On</p>
+    <input type="radio" name="bot_on" id="{% block marketplace1 %}{% endblock %}-bot-on" value="{% block marketplace2 %}{% endblock %}-bot-on" {% if gbp_config['SELL']['bot_on'] %} checked {% else %}{% endif %}>On</input>
+    <input type="radio" name="bot_on" id="{% block marketplace3 %}{% endblock %}-bot-off" value="{% block marketplace %}{% endblock %}-bot-off" {% if not gbp_config['SELL']['bot_on'] %} checked {% else %}{% endif %}>Off</input>
+    <p><input type="submit" value="Update"></p>
+</form>

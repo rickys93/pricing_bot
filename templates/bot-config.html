@@ -1,0 +1,115 @@
+{% extends "base.html" %} 
+{% block title %}Bot Config{% endblock %}
+{% block page %}bot-config{% endblock %}
+
+
+{% block content %} 
+<style>
+    p {
+        margin:0;
+        /* border-style: solid; */
+    }
+    .form-group {
+        display: inline-block;
+        padding: 20px;
+        width:24%;
+        border-style: solid;
+        border-radius: 5px;
+        margin-top: 10px;
+        background-color: rgb(223, 223, 223);
+    }
+    .input-box {
+        width: 100%;
+        display: block;
+        margin : 0 auto;
+    }       
+    .sell-buy {
+        display: inline-block;
+        width: 49%;
+        text-align: center;
+        margin-top: 20px;
+    }    
+    h3 {
+        text-align: center;
+    }  
+    
+</style>
+<h2 class="sell-buy">Sell Bot Config</h2>
+<h2 class="sell-buy">Buy Bot Config</h2>
+<div class="form-group">
+    <h3>GBP</h3>
+    <form action="#" method="post">
+        <p>Min Trades</p>
+        <p><input class="input-box" type="number" name="min_trades" id="min-trades" value="{{ gbp_config['SELL']['min_trades'] }}"></p>
+        <p>Top Trade Limit</p>
+        <p><input class="input-box" type="number" name="top_trade_limit" id="top-trade-limit" value="{{ gbp_config['SELL']['top_trade_limit'] }}"></p>
+        <p>Bottom Trade Limit</p>
+        <p><input class="input-box" type="number" name="bottom_trade_limit" id="bottom-trade-limit" value="{{ gbp_config['SELL']['bottom_trade_limit'] }}"></p>
+        <p>Min Top/Bottom Spread</p>
+        <p><input class="input-box" type="number" name="top_bottom_spread" id="top-bottom-spread" value="{{ gbp_config['SELL']['top_bottom_spread'] }}"></p>
+        <p>Price Floor Percent</p>
+        <p><input class="input-box" type="number" name="price_floor_percent" step="any" id="price-floor" value="{{ gbp_config['SELL']['price_floor_percent'] }}"></p>
+        <p>Bot On</p>
+        <input type="radio" name="bot_on" id="bot-on" value="gbp-sell-bot-on" {% if gbp_config['SELL']['bot_on'] %} checked {% else %}{% endif %}>On</input>
+        <input type="radio" name="bot_on" id="bot-off" value="gbp-sell-bot-off" {% if not gbp_config['SELL']['bot_on'] %} checked {% else %}{% endif %}>Off</input>
+        <p><input type="submit" value="Update"></p>
+    </form>
+</div>
+<div class="form-group">
+    <h3>EUR</h3>
+    <form action="#" method="post">
+        <p>Min Trades</p>
+        <p><input class="input-box" type="number" name="min_trades" id="min-trades" value="{{ eur_config['SELL']['min_trades'] }}"></p>
+        <p>Top Trade Limit</p>
+        <p><input class="input-box" type="number" name="top_trade_limit" id="top-trade-limit" value="{{ eur_config['SELL']['top_trade_limit'] }}"></p>
+        <p>Bottom Trade Limit</p>
+        <p><input class="input-box" type="number" name="bottom_trade_limit" id="bottom-trade-limit" value="{{ eur_config['SELL']['bottom_trade_limit'] }}"></p>
+        <p>Min Top/Bottom Spread</p>
+        <p><input class="input-box" type="number" name="top_bottom_spread" id="top-bottom-spread" value="{{ eur_config['SELL']['top_bottom_spread'] }}"></p>
+        <p>Price Floor Percent</p>
+        <p><input class="input-box" type="number" name="price_floor_percent" id="price-floor" step="any" value="{{ eur_config['SELL']['price_floor_percent'] }}"></p>
+        <p>Bot On</p>
+        <input type="radio" name="bot_on" id="bot-on" value="eur-sell-bot-on" {% if eur_config['SELL']['bot_on'] %} checked {% else %}{% endif %}>On</input>
+        <input type="radio" name="bot_on" id="bot-off" value="eur-sell-bot-off" {% if not eur_config['SELL']['bot_on'] %} checked {% else %}{% endif %}>Off</input>
+        <p><input type="submit" value="Update"></p>
+    </form>
+</div>
+<div class="form-group">
+    <h3>GBP</h3>
+    <form action="#" method="post">
+        <p>Min Trades</p>
+        <p><input class="input-box" type="number" name="min_trades" id="min-trades" value="{{ gbp_config['BUY']['min_trades'] }}"></p>
+        <p>Top Trade Limit</p>
+        <p><input class="input-box" type="number" name="top_trade_limit" id="top-trade-limit" value="{{ gbp_config['BUY']['top_trade_limit'] }}"></p>
+        <p>Bottom Trade Limit</p>
+        <p><input class="input-box" type="number" name="bottom_trade_limit" id="bottom-trade-limit" value="{{ gbp_config['BUY']['bottom_trade_limit'] }}"></p>
+        <p>Min Top/Bottom Spread</p>
+        <p><input class="input-box" type="number" name="top_bottom_spread" id="top-bottom-spread" value="{{ gbp_config['BUY']['top_bottom_spread'] }}"></p>
+        <p>Price Floor Percent</p>
+        <p><input class="input-box" type="number" name="price_floor_percent" step="any" id="price-floor" value="{{ gbp_config['BUY']['price_floor_percent'] }}"></p>
+        <p>Bot On</p>
+        <input type="radio" name="bot_on" id="bot-on" value="gbp-buy-bot-on" {% if gbp_config['BUY']['bot_on'] %} checked {% else %}{% endif %}>On</input>
+        <input type="radio" name="bot_on" id="bot-off" value="gbp-buy-bot-off" {% if not gbp_config['BUY']['bot_on'] %} checked {% else %}{% endif %}>Off</input>
+        <p><input type="submit" value="Update"></p>
+    </form>
+</div>
+<div class="form-group">
+    <h3>EUR</h3>
+    <form action="#" method="post">
+        <p>Min Trades</p>
+        <p><input class="input-box" type="number" name="min_trades" id="min-trades" value="{{ eur_config['BUY']['min_trades'] }}"></p>
+        <p>Top Trade Limit</p>
+        <p><input class="input-box" type="number" name="top_trade_limit" id="top-trade-limit" value="{{ eur_config['BUY']['top_trade_limit'] }}"></p>
+        <p>Bottom Trade Limit</p>
+        <p><input class="input-box" type="number" name="bottom_trade_limit" id="bottom-trade-limit" value="{{ eur_config['BUY']['bottom_trade_limit'] }}"></p>
+        <p>Min Top/Bottom Spread</p>
+        <p><input class="input-box" type="number" name="top_bottom_spread" id="top-bottom-spread" value="{{ eur_config['BUY']['top_bottom_spread'] }}"></p>
+        <p>Price Floor Percent</p>
+        <p><input class="input-box" type="number" name="price_floor_percent" step="any" id="price-floor" value="{{ eur_config['BUY']['price_floor_percent'] }}"></p>
+        <p>Bot On</p>
+        <input type="radio" name="bot_on" id="bot-on" value="eur-buy-bot-on" {% if eur_config['BUY']['bot_on'] %} checked {% else %}{% endif %}>On</input>
+        <input type="radio" name="bot_on" id="bot-off" value="eur-buy-bot-off" {% if not eur_config['BUY']['bot_on'] %} checked {% else %}{% endif %}>Off</input>
+        <p><input type="submit" value="Update"></p>
+    </form>
+</div>
+{% endblock %}

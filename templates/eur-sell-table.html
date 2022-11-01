@@ -1,0 +1,19 @@
+<tbody id="eur-sell">
+    {% for ad in eur_sell %}
+<tr>
+    {% if ad['targetting'] == 1 %}
+    <th scope="row" style="color:rgb(70, 70, 70)">{{ad['ad_id']}}</th>
+    <td style="color:rgb(255, 0, 0)">{{ad['username']}}</td>
+    <td style="color:rgb(70, 70, 70)">{{ad['temp_price']}}</td>
+    <td style="color:rgb(70, 70, 70)">{{ad['min_amount']}}</td>
+    <td style="color:rgb(70, 70, 70)">{{ad['max_amount_available']}}</td>
+    {% else %}
+    <th scope="row" style="color:rgb(140, 140, 140)">{{ad['ad_id']}}</th>
+    <td style="color:rgb(140, 140, 140)">{{ad['username']}}</td>
+    <td style="color:rgb(140, 140, 140)">{{ad['temp_price']}}</td>
+    <td style="color:rgb(140, 140, 140)">{{ad['min_amount']}}</td>
+    <td style="color:rgb(140, 140, 140)">{{ad['max_amount_available']}}</td>
+    {% endif %}
+</tr>
+    {% endfor %}
+</tbody>

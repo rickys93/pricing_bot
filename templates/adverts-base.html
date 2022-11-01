@@ -1,0 +1,41 @@
+{% extends "base.html" %} 
+{% block meta %}<meta http-equiv="refresh" content="5"> {% endblock %}
+
+
+{% block content %} 
+<div><h1 style="text-align:center; margin-top: 20px;">{% block advert_type %}{% endblock %}</h1></div>
+<div>
+    <div class="price-ticker">Market Price = {% block market_price %}{% endblock %}</div>
+    <div class="price-ticker">Sell Price = {% block sell_price %}{% endblock %}</div>
+    <div class="price-ticker">Price Floor = {% block price_floor %}{% endblock %}</div>
+    <div class="price-ticker">Margin = {% block margin %}{% endblock %}</div>
+    
+</div>
+<style>
+    .price-ticker {
+        display:inline-block;
+        width: 24%;
+        text-align: center;
+        padding: 5px;
+        font-size: large;
+        margin-top: 10px;
+    }
+</style>
+<div class="tbl-header">
+<table class="table" id="table">
+    <thead class="thead-dark">
+    <tr>
+        <th scope="col">AD ID</th>
+        <th scope="col">USERNAME</th>
+        <th scope="col">PRICE</th>
+        <th scope="col">MIN AMOUNT</th>
+        <th scope="col">MAX AMOUNT</th>
+    </tr>
+    </thead>
+    {% block table_content %} {% endblock %}
+</table>
+</div>
+
+<!-- partial -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script><script  src="./script.js"></script>
+{% endblock %}
